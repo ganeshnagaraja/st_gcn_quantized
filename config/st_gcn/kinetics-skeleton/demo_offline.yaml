@@ -1,0 +1,76 @@
+weights: ./checkpoints/st_gcn.kinetics.pt
+# quantized_weights: ./checkpoints/quantized_model.pt
+model_fps: 30
+
+# model
+model: net.st_gcn_q.Model
+# model: net.st_gcn.Model
+model_args:
+  in_channels: 3
+  num_class: 400
+  edge_importance_weighting: True
+  graph_args:
+    layout: 'openpose'
+    strategy: 'spatial'
+    
+# training
+use_gpu: False
+device: [0]
+
+# dictionary - pose points
+mediapipe_pose_points: {
+  "PoseLandmark.NOSE": 0,
+  "PoseLandmark.LEFT_EYE_INNER": 1,
+  "PoseLandmark.LEFT_EYE": 2,
+  "PoseLandmark.LEFT_EYE_OUTER": 3,
+  "PoseLandmark.RIGHT_EYE_INNER": 4,
+  "PoseLandmark.RIGHT_EYE": 5,
+  "PoseLandmark.RIGHT_EYE_OUTER": 6,
+  "PoseLandmark.LEFT_EAR": 7,
+  "PoseLandmark.RIGHT_EAR": 8,
+  "PoseLandmark.MOUTH_LEFT": 9,
+   "PoseLandmark.MOUTH_RIGHT": 10,
+   "PoseLandmark.LEFT_SHOULDER": 11,
+   "PoseLandmark.RIGHT_SHOULDER": 12,
+   "PoseLandmark.LEFT_ELBOW": 13,
+   "PoseLandmark.RIGHT_ELBOW": 14,
+   "PoseLandmark.LEFT_WRIST": 15,
+   "PoseLandmark.RIGHT_WRIST": 16,
+   "PoseLandmark.LEFT_PINKY": 17,
+   "PoseLandmark.RIGHT_PINKY": 18,
+   "PoseLandmark.LEFT_INDEX": 19,
+   "PoseLandmark.RIGHT_INDEX": 20,
+   "PoseLandmark.LEFT_THUMB": 21,
+   "PoseLandmark.RIGHT_THUMB": 22,
+   "PoseLandmark.LEFT_HIP": 23,
+   "PoseLandmark.RIGHT_HIP": 24,
+   "PoseLandmark.LEFT_KNEE": 25,
+   "PoseLandmark.RIGHT_KNEE": 26,
+   "PoseLandmark.LEFT_ANKLE": 27,
+   "PoseLandmark.RIGHT_ANKLE": 28,
+   "PoseLandmark.LEFT_HEEL": 29,
+   "PoseLandmark.RIGHT_HEEL": 30,
+   "PoseLandmark.LEFT_FOOT_INDEX": 31,
+   "PoseLandmark.RIGHT_FOOT_INDEX": 32,
+}
+
+openpose_17_keypoints: [
+    "PoseLandmark.NOSE",
+    "PoseLandmark.NECK",
+    "PoseLandmark.RIGHT_SHOULDER",
+    "PoseLandmark.RIGHT_ELBOW",
+    "PoseLandmark.RIGHT_WRIST",
+    "PoseLandmark.LEFT_SHOULDER",
+    "PoseLandmark.LEFT_ELBOW",
+    "PoseLandmark.LEFT_WRIST",
+    "PoseLandmark.RIGHT_HIP",
+    "PoseLandmark.RIGHT_KNEE",
+    "PoseLandmark.RIGHT_ANKLE",
+    "PoseLandmark.LEFT_HIP",
+    "PoseLandmark.LEFT_KNEE",
+    "PoseLandmark.LEFT_ANKLE",
+    "PoseLandmark.RIGHT_EYE",
+    "PoseLandmark.LEFT_EYE",
+    "PoseLandmark.RIGHT_EAR",
+    "PoseLandmark.LEFT_EAR",
+]

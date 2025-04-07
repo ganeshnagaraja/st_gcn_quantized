@@ -1,0 +1,78 @@
+# command line: main.py demo_offline
+
+config: ./config/st_gcn/kinetics-skeleton/demo_offline.yaml
+device:
+- 0
+height: 1080
+ignore_weights: []
+mediapipe_pose_points:
+    PoseLandmark.LEFT_ANKLE: 27
+    PoseLandmark.LEFT_EAR: 7
+    PoseLandmark.LEFT_ELBOW: 13
+    PoseLandmark.LEFT_EYE: 2
+    PoseLandmark.LEFT_EYE_INNER: 1
+    PoseLandmark.LEFT_EYE_OUTER: 3
+    PoseLandmark.LEFT_FOOT_INDEX: 31
+    PoseLandmark.LEFT_HEEL: 29
+    PoseLandmark.LEFT_HIP: 23
+    PoseLandmark.LEFT_INDEX: 19
+    PoseLandmark.LEFT_KNEE: 25
+    PoseLandmark.LEFT_PINKY: 17
+    PoseLandmark.LEFT_SHOULDER: 11
+    PoseLandmark.LEFT_THUMB: 21
+    PoseLandmark.LEFT_WRIST: 15
+    PoseLandmark.MOUTH_LEFT: 9
+    PoseLandmark.MOUTH_RIGHT: 10
+    PoseLandmark.NOSE: 0
+    PoseLandmark.RIGHT_ANKLE: 28
+    PoseLandmark.RIGHT_EAR: 8
+    PoseLandmark.RIGHT_ELBOW: 14
+    PoseLandmark.RIGHT_EYE: 5
+    PoseLandmark.RIGHT_EYE_INNER: 4
+    PoseLandmark.RIGHT_EYE_OUTER: 6
+    PoseLandmark.RIGHT_FOOT_INDEX: 32
+    PoseLandmark.RIGHT_HEEL: 30
+    PoseLandmark.RIGHT_HIP: 24
+    PoseLandmark.RIGHT_INDEX: 20
+    PoseLandmark.RIGHT_KNEE: 26
+    PoseLandmark.RIGHT_PINKY: 18
+    PoseLandmark.RIGHT_SHOULDER: 12
+    PoseLandmark.RIGHT_THUMB: 22
+    PoseLandmark.RIGHT_WRIST: 16
+model: net.st_gcn_q.Model
+model_args:
+    edge_importance_weighting: true
+    graph_args:
+        layout: openpose
+        strategy: spatial
+    in_channels: 3
+    num_class: 400
+model_fps: 30
+model_input_frame: 128
+openpose: null
+openpose_17_keypoints:
+- PoseLandmark.NOSE
+- PoseLandmark.NECK
+- PoseLandmark.RIGHT_SHOULDER
+- PoseLandmark.RIGHT_ELBOW
+- PoseLandmark.RIGHT_WRIST
+- PoseLandmark.LEFT_SHOULDER
+- PoseLandmark.LEFT_ELBOW
+- PoseLandmark.LEFT_WRIST
+- PoseLandmark.RIGHT_HIP
+- PoseLandmark.RIGHT_KNEE
+- PoseLandmark.RIGHT_ANKLE
+- PoseLandmark.LEFT_HIP
+- PoseLandmark.LEFT_KNEE
+- PoseLandmark.LEFT_ANKLE
+- PoseLandmark.RIGHT_EYE
+- PoseLandmark.LEFT_EYE
+- PoseLandmark.RIGHT_EAR
+- PoseLandmark.LEFT_EAR
+print_log: false
+quantized_weights: null
+save_log: true
+use_gpu: false
+video: ./resource/media/ta_chi.mp4
+weights: ./checkpoints/st_gcn.kinetics.pt
+work_dir: ./work_dir/tmp
